@@ -1,0 +1,11 @@
+\#*
+*.out
+*.log
+*.aux
+*.toc
+*.nav
+*.snm
+*synctex*
+auto
+*latexmk*
+cc-by-sa.pdf

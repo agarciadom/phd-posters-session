@@ -1,0 +1,67 @@
+\documentclass[xcolor=svgnames]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamercovered{dynamic}
+}
+
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{tikz}
+\usepackage{fancyvrb}
+\usepackage[htt]{hyphenat}
+
+\PrerenderUnicode{áéíóúÁÉÍÓÚçÇ}
+
+\title[Pósters científicos]{¿Cómo elaborar un buen póster científico?}
+\author{Antonio García Domínguez}
+\date{Cursos de doctorado \\ \small 18 de enero de 2012}
+\institute{Universidad de Cádiz \\\vspace{2em} \includegraphics{cc-by-sa}}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>{Contenidos}
+    \tableofcontents[currentsection,hideothersubsections]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Contenidos}
+    \tableofcontents[currentsection,subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+\usetikzlibrary{calc,positioning,shapes,shapes.geometric}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contenidos}
+  \tableofcontents[hideallsubsections]
+
+  Materiales en \url{http://github.com/bluezio/phd-posters-session} y
+  el Campus Virtual de la UCA.
+\end{frame}
+
+\appendix
+
+\begin{frame}{Fin de la presentación}
+  \begin{center}
+    {\Huge ¡Gracias por su atención!}
+
+    \vspace{3em}
+
+    {\Large
+      \href{mailto:antonio.garciadominguez@uca.es}{antonio.garciadominguez@uca.es}}
+  \end{center}
+\end{frame}
+
+\end{document}
