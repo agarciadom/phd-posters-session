@@ -1,0 +1,102 @@
+digraph PSL {
+
+  psl_core [ label = "PSL-Core", fillcolor="#ff9999", style=filled ];
+
+  subactivity [ label = "Subactivities" ];
+  occtree     [ label = "Occurrence\nTrees" ];
+  disc_state  [ label = "Discrete\nStates" ];
+  atomic  [ label = "Atomic\nActivities" ];
+  complex [ label = "Complex\nActivities" ];
+  act_occ [ label = "Activity\nOccurrence" ];
+
+  duration [ label = "Duration\nTheory" ];
+  soo [ label = "Subactivity\nOccurrence\nOrdering" ];
+  preserve [ label = "Occurrence\nTree\nAutomorphisms" ];
+  envelope [ label = "Envelopes\nand Umbrae" ];
+  requires [ label = "Resource\nRequirements\nTheory" ];
+  res_set [ label = "Resource Sets" ];
+
+  node [ fillcolor="#bbffbb", style=filled ];
+
+  embedding [ label = "Embedded\nActivity\nConstraints" ];
+  precond [ label = "Activity\nPreconditions" ];
+  occ_precond [ label = "Occurrence-based\nActivity Preconditions" ];
+ 
+  subactivity -> psl_core;
+  occtree     -> psl_core;
+
+  disc_state  -> occtree;
+  disc_state  -> psl_core;
+
+  atomic -> occtree;
+  atomic -> subactivity;
+  atomic -> psl_core;
+
+  complex -> occtree;
+  complex -> atomic;
+  complex -> subactivity;
+  complex -> psl_core;
+
+  act_occ -> complex;
+  act_occ -> occtree;
+  act_occ -> atomic;
+  act_occ -> subactivity;
+  act_occ -> psl_core;
+
+  duration -> psl_core;
+
+  soo -> act_occ;
+  soo -> complex;
+  soo -> atomic;
+  soo -> subactivity;
+  soo -> occtree;
+  soo -> psl_core;
+
+  preserve -> act_occ;
+  preserve -> complex;
+  preserve -> atomic;
+  preserve -> occtree;
+  preserve -> psl_core;
+  preserve -> occ_precond;
+
+  envelope -> act_occ;
+  envelope -> complex;
+  envelope -> atomic;
+  envelope -> subactivity;
+  envelope -> occtree;
+  envelope -> psl_core;
+  envelope -> embedding;
+
+  requires -> act_occ;
+  requires -> complex;
+  requires -> atomic;
+  requires -> subactivity;
+  requires -> disc_state;
+  requires -> occtree;
+  requires -> psl_core;
+
+  res_set -> requires;
+  res_set -> act_occ;
+  res_set -> complex;
+  res_set -> occtree;
+  res_set -> disc_state;
+  res_set -> atomic;
+  res_set -> subactivity;
+  res_set -> psl_core;
+
+  occ_precond -> occtree;
+  occ_precond -> psl_core;
+  occ_precond -> precond;
+
+  precond -> disc_state;
+  precond -> occtree;
+  precond -> psl_core;
+
+  embedding -> act_occ;
+  embedding -> complex;
+  embedding -> atomic;
+  embedding -> subactivity;
+  embedding -> occtree;
+  embedding -> psl_core;
+
+}
