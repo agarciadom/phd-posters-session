@@ -1,6 +1,6 @@
 PDF=transparencias.pdf
 LATEXMK_FLAGS=-r latexmkrc.pl -pdf
-FIGURES=cc-by-sa.pdf
+FIGURES=cc-by-sa.pdf A_size_illustration2_with_letter_and_legal.pdf
 .PHONY: all install preview clean
 
 $(PDF): $(FIGURES)
