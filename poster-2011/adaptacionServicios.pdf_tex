@@ -1,0 +1,63 @@
+%% Creator: Inkscape inkscape 0.48.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'adaptacionServicios.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+
+\begingroup
+  \makeatletter
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}
+    \renewcommand\color[2][]{}%
+  }
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}
+    \renewcommand\transparent[1]{}%
+  }
+  \providecommand\rotatebox[2]{#2}
+  \ifx\svgwidth\undefined
+    \setlength{\unitlength}{310.45pt}
+  \else
+    \setlength{\unitlength}{\svgwidth}
+  \fi
+  \global\let\svgwidth\undefined
+  \makeatother
+  \begin{picture}(1,0.43469158)%
+    \put(0,0){\includegraphics[width=\unitlength]{adaptacionServicios.pdf}}%
+    \put(0.35052153,0.32){\makebox(0,0)[b]{\shortstack{Web\\[.5ex]{}
+Service\\[.5ex]{}
+Interface}}}%
+    \put(0.65522326,0.33){\makebox(0,0)[b]{\shortstack{Adaptation\\[.5ex]{}
+Aspect}}}%
+    \put(0.07125918,0.34752107){\makebox(0,0)[b]{\smash{Client}}}%
+    \put(0.13021723,0.24279351){\makebox(0,0)[lb]{\smash{getInfo(ISBN)}}}%
+    \put(0.39566502,0.22939357){\makebox(0,0)[lb]{\smash{Proceed(ISBN, info)}}}%
+    \put(0.42301356,0.097585){\makebox(0,0)[lb]{\smash{return result}}}%
+    \put(0.37332927,0.04830626){\makebox(0,0)[lb]{\smash{return adapted result}}}%
+    \put(0.07863613,0.04830626){\makebox(0,0)[lb]{\smash{return adapted result}}}%
+    \put(0.91273756,0.3375){\makebox(0,0)[b]{\shortstack{SOAP\\[.5ex]{}
+Handler}}}%
+    \put(0.69752239,0.097585){\makebox(0,0)[lb]{\smash{getInfoHeader}}}%
+    \put(0.66695994,0.03190618){\makebox(0,0)[lb]{\smash{return getInfoHeader}}}%
+  \end{picture}%
+\endgroup

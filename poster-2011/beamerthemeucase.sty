@@ -1,0 +1,116 @@
+\ProvidesPackage{beamerthemeucase}
+
+\mode<presentation>
+
+% Diseñado con colorschemedesigner.com %
+
+\definecolor{pri1}{HTML}{00B9FF}
+\definecolor{pri2}{HTML}{00374D}
+\definecolor{pri3}{HTML}{80DCFF}
+\definecolor{pri4}{HTML}{E6F8FF}
+
+\definecolor{com1}{HTML}{FF8500}
+\definecolor{com2}{HTML}{4D2800}
+\definecolor{com3}{HTML}{FFC280}
+\definecolor{com4}{HTML}{FFF3E6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{headline}{fg=pri2,bg=com4}
+\setbeamercolor{footline}{fg=pri2,bg=com4}
+\setbeamercolor{separation line}{bg=gray}
+
+\setbeamercolor*{normal text}{fg=pri2,bg=pri4}
+\setbeamercolor*{block body}{fg=pri2,bg=com4}
+\setbeamercolor*{block title}{fg=white,bg=com1}
+\setbeamerfont{block title}{size=\Large,series=\bf}
+\setbeamerfont{block body}{size=\large}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamercolor{structure}{fg=com2}
+
+\setbeamertemplate{itemize items}[triangle]
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{block begin}{%
+  \vskip.75ex%
+  \begin{beamercolorbox}[ht=3.5ex,center,colsep*=.75ex,rounded=true]{block title}%
+    \usebeamerfont*{block title}%
+    {\phantom{Gg}\insertblocktitle}% phantom because of baseline problem
+  \end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[leftskip=1em,colsep*=.75ex,sep=0.5ex,rounded=true,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}\raggedright%
+}
+\setbeamertemplate{block end}{
+  \end{beamercolorbox}
+  \vspace{.25ex}
+}
+
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \vspace{1em}
+    \begin{columns}
+      \begin{column}{.02\paperwidth}
+      \end{column}
+      \begin{column}{.7\paperwidth}
+        \raggedright
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\inserttitle}}
+      \end{column}
+      \begin{column}{.25\paperwidth}
+        \includegraphics[width=.95\linewidth]{logo}
+      \end{column}
+      \begin{column}{.02\paperwidth}
+      \end{column}
+    \end{columns}
+    \vspace{1em}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{6pt}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
+    \rule{0pt}{6pt}
+  \end{beamercolorbox}
+
+  \begin{beamercolorbox}[wd=\paperwidth]{footline}
+    \Large
+    \vspace{.5em}
+    \begin{columns}
+      \begin{column}{.025\paperwidth}
+      \end{column}
+      \begin{column}{.3\paperwidth}
+        \includegraphics[height=8cm]{logo_uca}
+        \hspace{1em}
+        \includegraphics[height=8cm]{logo_esi_noshadow}
+      \end{column}
+      \begin{column}{.5\paperwidth}
+        \begin{center}
+          Sede web:\\[1ex]\url{http://www.uca.es/ucase} \\[1ex]
+
+          Tel\'{e}fono: 956 015780 \hfill Fax: 956 015139
+        \end{center}
+      \end{column}
+      \begin{column}{.15\paperwidth}
+        \raggedleft
+        \includegraphics[height=8cm]{qrcode_web_ucase}
+      \end{column}
+      \begin{column}{.025\paperwidth}
+      \end{column}
+    \end{columns}
+    \vspace{.5em}
+  \end{beamercolorbox}
+}
+
+\newenvironment{headerblock}[1]{%
+  \begingroup%
+  \setbeamercolor*{block title}{fg=white,bg=pri2}%
+  \setbeamercolor*{block body}{fg=pri2,bg=pri4}%
+  \def\insertblocktitle{#1}%
+  \par%
+  \usebeamertemplate{block begin}%
+}{\usebeamertemplate{block end}\endgroup}

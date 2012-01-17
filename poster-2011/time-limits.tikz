@@ -1,0 +1,68 @@
+% -*- latex -*-
+
+\begin{umlactivity}
+  % Activity diagram nodes
+  \node (ini) {};
+  \activity[below=.5em of ini,text=pri2]{aeo}{Evaluar}
+  \decision[right=.5em of aeo,anchor=north west,ultra thick,inner sep=.5em]{decaccept}
+  \fork[below right=1em and 1em of decaccept]{forkaccepted}
+  \activity[right=3.5em of forkaccepted,anchor=west,text=pri2]{acso}{Enviar}
+  \activity[below right=1.75em and .5em of forkaccepted,anchor=west,text=pri2]{aci}{Facturar}
+  \activity[right=1em of aci,anchor=west,text=pri2]{app}{Pagar}
+  \join[right=11.5em of forkaccepted,anchor=west]{joinaccepted}
+  \join[right=16em of aeo]{joinaccept}
+  \activity[right=.5em of joinaccept,anchor=west,text=pri2]{aco}{Cerrar}
+  \node[above=.5em of aco] (fin) {};
+
+  % Computed paths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \coordinate (end1) at ([xshift=-.5em,yshift=-.25em]fin.north);
+  \coordinate (end2) at (fin.north);
+  \coordinate (end3) at ([xshift=.5em,yshift=.25em]fin.north);
+  \coordinate (start1) at ([xshift=-1em,yshift=.-.25em]ini.north);
+  \coordinate (start2) at (ini.north);
+  \coordinate (start3) at ([xshift=1em,yshift=.25em]ini.north);
+
+  \draw[->,line width=4pt,blue]
+    (start1) -- ([xshift=-.5em]aeo.north)
+    ([yshift=.5em]aeo.east) -- ([yshift=.125em]decaccept.north)
+    ([yshift=.125em]decaccept.east) -- ([yshift=.5em]joinaccept.west)
+    ([yshift=.5em]joinaccept.east) -- ([yshift=.5em]aco.west)
+    ([xshift=-.5em]aco.north) -- (end1);
+
+  \draw[->,line width=4pt,red]
+    (start2) -- (aeo) -- (decaccept)
+    (decaccept.south east) -- ([yshift=.5em]forkaccepted.west)
+    ([yshift=.5em]forkaccepted.east) -- ([yshift=.5em]acso.west)
+    ([yshift=.5em]acso.east) -- ([yshift=.5em]joinaccepted.west)
+    (joinaccepted) -- (joinaccept.west)
+    (joinaccept) -- (aco) -- (end2);
+
+  \draw[->,line width=4pt,color=DarkGreen]
+    (start3) -- ([xshift=.5em]aeo.north)
+    ([yshift=-.5em]aeo.east) -- ([yshift=-.125em]decaccept.west)
+    ([yshift=-.1em]decaccept.south) -- ([yshift=-.5em]forkaccepted.west)
+    (forkaccepted.south) -- (aci.west)
+    (aci.east) -- (app.west)
+    (app.east) -- (joinaccepted.south)
+    ([yshift=-.5em]joinaccepted.east) -- ([yshift=-.5em]joinaccept.west)
+    ([yshift=-.5em]joinaccept.east) -- ([yshift=-.5em]aco.west)
+    ([xshift=.5em]aco.north) -- (end3);
+
+  \begin{scope}[every node/.style={draw,inner sep=0,shape=circle}]
+    \node[color=blue,fill=white] at (start1) {3};
+    \node[color=red,fill=white] at (start2) {2};
+    \node[color=DarkGreen,fill=white] at (start3) {1};
+  \end{scope}
+
+  % Inferred and manual restrictions %%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{scope}[every node/.style={%
+      draw,shape=ellipse,inner sep=0,fill=com3,anchor=south west}]
+    \node at (aeo.south west)  {0.4};
+    \node at (aci.south west)  {0.2};
+    \node at (app.south west)  {0.2};
+    \node at (aco.south west)  {0.2};
+    \node at (acso.south west) {0.4};
+  \end{scope}
+
+\end{umlactivity}
