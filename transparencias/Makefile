@@ -16,8 +16,8 @@ install:
 %.pdf: %.svg
 	inkscape -A $@ $<
 
-preview: $(subst .pdf,.tex,$(PDF))
-	latexmk $(LATEXMK_FLAGS) -pvc $<
+preview: $(PDF)
+	latexmk $(LATEXMK_FLAGS) -pvc ${<:.pdf=}
 
 clean:
 	latexmk -C -pdf $<
