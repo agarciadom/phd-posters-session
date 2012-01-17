@@ -1,7 +1,0 @@
-(defun mergesort (x)
-  (if (or (atom x) (atom (rest x)) (< (len x) 16))
-      (insertion-sort x)
-    (let ((s (split x)))
-      (merging (mergesort (first s))
-               (mergesort (second s))))))
-(defthm sortedp-mergesort (sortedp (mergesort x)))

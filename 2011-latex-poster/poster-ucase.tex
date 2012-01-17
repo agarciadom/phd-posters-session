@@ -1,0 +1,273 @@
+\pdfminorversion=5
+\pdfobjcompresslevel=2
+\documentclass[usepdftitle=false,xcolor={svgnames}]{beamer}
+\mode<presentation>
+{
+  \usetheme{ucase}
+}
+\usepackage{times}
+\usepackage[spanish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[orientation=portrait,scale=1.5]{beamerposter}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{numprint}
+\usepackage{csquotes}
+\usepackage{calc,fp}
+\usepackage{tikz}
+\usepackage{listings}
+
+\PrerenderUnicode{áéíóúÁÉÍÓÚñÑçÇ}
+
+\title{\huge Grupo UCASE de Ingeniería del Software \\[.5ex] \LARGE TIC-025}
+\author{Antonio García Domínguez}
+\institute{Universidad de Cádiz}
+\date{\today}
+\hypersetup{%
+  pdftitle=Grupo UCASE de Ingeniería del Software (TIC-025),%
+  pdfauthor=Antonio García Domínguez}
+
+\newcommand*{\financiador}[1]{\emph{#1}}
+\newcommand*{\herramienta}[1]{\textbf{\structure{#1}}}
+
+% Comentar para dejar de justificar el texto
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm} 
+
+\newenvironment{autowidthdesc}[1]{%
+  \begin{list}{}{\renewcommand\makelabel[1]{\structure{##1}\hfil}%
+      \settowidth\labelwidth{\makelabel{#1}}%
+      \setlength\leftmargin{\labelwidth+\labelsep}}}%
+  {\end{list}}
+
+\input{prologo-dibujos}
+
+\begin{document}
+
+\begin{frame}{}
+
+  \begin{columns}[T]
+
+    \column{.01\textwidth}
+
+    \column{.7\textwidth}
+    \begin{headerblock}{Miembros}
+      \begin{center}
+        \begin{columns}
+          \column{.64\textwidth}
+          \includegraphics[width=\textwidth]{grupo_15_sept_2011}
+          \tikz[overlay]{
+            \tikzstyle{peoplemarker}=[draw,shape=circle,fill=com1,text=white,inner sep=.1em,minimum width=.6em,text depth=0,text centered,semitransparent]
+            \foreach \x/\n/\y in {
+              -.853\textwidth/1/.66\textwidth,
+              -.69\textwidth/2/.66\textwidth,
+              -.563\textwidth/3/.66\textwidth,
+              -.394\textwidth/4/.66\textwidth,
+              -.195\textwidth/5/.66\textwidth,
+              -.825\textwidth/6/.48\textwidth,
+              -.655\textwidth/7/.48\textwidth,
+              -.5\textwidth/8/.48\textwidth,
+              -.325\textwidth/9/.48\textwidth,
+              -.145\textwidth/10/.48\textwidth
+            }{
+              \node[peoplemarker] at (\x,\y) {\scriptsize \n};
+            }
+          }
+
+          \column{.36\textwidth}
+          \normalsize
+
+          \structure{Responsable}
+
+          \vspace{.5em}
+
+          Inmaculada Medina Bulo\textsuperscript{8}
+
+          \vspace{.5em}
+
+          \structure{Investigadores}
+
+          \vspace{.5em}
+
+          Antonia Estero Botaro\textsuperscript{9}
+
+          Antonio García Domínguez\textsuperscript{4}
+
+          Francisco Palomo Lozano\textsuperscript{5}
+
+          Guadalupe Ortiz Bellot\textsuperscript{10}
+
+          José Antonio Jiménez Millán\textsuperscript{2}
+
+          Juan Boubeta Puig\textsuperscript{1}
+
+          Juan José Domínguez Jiménez\textsuperscript{3}
+
+          Lorena Gutiérrez Madroñal\textsuperscript{7}
+
+          Mª del Carmen de Castro Cabrera\textsuperscript{6}
+        \end{columns}
+      \end{center}
+    \end{headerblock}
+
+    \column{.265\textwidth}
+
+    \begin{headerblock}{Proyectos en ejecución}
+      \small
+
+      \begin{center}
+        \structure{Propios}
+      \end{center}
+      \begin{description}
+      \item[TIN2011-27242] \enquote{Extensión de una metodología
+          dirigida por modelos para SOA 2.0: prueba y adaptación de
+          servicios}. \financiador{MICINN}.
+
+      \item[PR2011-004] \enquote{Verificación, validación y
+          adaptación en arquitecturas orientadas a servicios
+          aplicando una metodología dirigida por
+          modelos}. \financiador{UCA}.
+      \end{description}
+
+      \begin{center}
+        \structure{En colaboración}
+      \end{center}
+      \begin{description}
+      \item[TIN2008-02985] \enquote{Desarrollo dirigido por modelos de
+          procesos de negocio en factorías software: aplicaciones a la
+          Web 2.0 y arquitecturas multicapa en
+          J2EE}. \financiador{MICINN}.
+      \end{description}
+    \end{headerblock}
+  \end{columns}
+
+  % See http://tex.stackexchange.com/questions/6370/how-to-center-a-beamercolorbox
+  \begin{center}
+    ~
+    \setbeamercolor*{block title}{fg=white,bg=pri2}
+    \begin{beamercolorbox}[ht=4ex,wd=.975\textwidth,center,colsep=.75ex,rounded=true]{block title}%
+      \usebeamerfont*{block title}\large Líneas de investigación
+    \end{beamercolorbox}
+    ~
+  \end{center}
+
+  \vspace{-1em}
+
+    \begin{columns}[T]
+      \begin{column}{.45\textwidth}
+        \begin{block}{Mutación evolutiva}
+          \begin{columns}
+            \column{.475\textwidth} \small La prueba de mutaciones
+            realiza cambios (\emph{mutaciones}) en un programa para
+            ver si sus pruebas pueden detectarlos. Proponemos la
+            \emph{mutación evolutiva}, en que se mejoran los casos de
+            prueba de forma automatizada usando algoritmos genéticos
+            para localizar mutantes no detectados y generar nuevos
+            casos que los detecten. Nuestra herramienta
+            \href{http://neptuno.uca.es/~gamera}{\herramienta{GAmera}}
+            implementa los algoritmos genéticos, usando los operadores
+            de mutación para WS-BPEL 2.0 de
+            \href{https://neptuno.uca.es/redmine/projects/sources-fm/}{\herramienta{MuBPEL}}.
+
+            \column{.5\textwidth}
+            \begin{center}
+              \scriptsize \def\svgwidth{\textwidth}
+              \input{mutacion-evolutiva.pdf_tex}
+            \end{center}
+          \end{columns}
+        \end{block}
+
+      \begin{block}{Pruebas dirigidas por modelos}
+        \small Para obtener mejor software, se deberían realizar
+        pruebas incluso antes de tener todo el código, usando modelos
+        en su lugar. Dentro de la metodología
+        \href{https://neptuno.uca.es/redmine/projects/sodmt/}{\herramienta{SODM+T}},
+        hemos definido varios algoritmos de inferencia de requisitos
+        de rendimiento en modelos de composiciones de servicios
+        web. Estos requisitos se usarán después para generar casos de
+        prueba concretos.
+
+        \begin{center}
+          \input{time-limits.tikz}
+        \end{center}
+      \end{block}
+
+      \vspace{-.18em}
+
+      \begin{block}{Verificación formal de software}
+        \small Usamos ACL2, un dialecto de LISP diseñado para
+        verificación. Es también una lógica computacional y un sistema
+        de razonamiento automatizado que ayuda a demostrar propiedades
+        de programas.
+
+        \begin{center}
+          \begin{tabular}{c}
+            \lstinputlisting[language=Lisp,basicstyle=\small\ttfamily,keywordstyle=\normalfont\small]{mergesort.lisp}
+          \end{tabular}
+        \end{center}
+      \end{block}
+    \end{column}
+    
+    \begin{column}{.45\textwidth}
+      \begin{block}{Adaptación de servicios al contexto}
+        \small Actualmente las propuestas para adaptar los servicios
+        web al contexto se centran en la adaptación del
+        cliente. Nosotros proponemos no sobrecargar los clientes
+        llevando a cabo la adaptación de forma no intrusiva en el
+        servicio mediante un desarrollo dirigido por modelos y
+        orientado a aspectos.
+
+        \vspace{.5em}
+
+        \begin{center}
+          \scriptsize \def\svgwidth{.8\textwidth}
+          \input{adaptacionServicios.pdf_tex}
+        \end{center}
+      \end{block}
+
+      \vspace{-.15em}
+
+      \begin{block}{Procesamiento de eventos complejos}
+        \small Mediante unos patrones de eventos, se pueden inferir
+        nuevos eventos con mayor contenido semántico.  Estos eventos
+        complejos pueden tratarse en tiempo real, agilizando la toma
+        de decisiones.
+
+        \vspace{1em}
+
+        \begin{center}
+          \scriptsize \input{patronCEP.pdf_tex}
+        \end{center}
+      \end{block}
+
+      \vspace{-.1em}
+
+      \begin{block}{Generación dinámica de invariantes (con SPI\&FM)}
+        \begin{columns}
+          \column{.025\textwidth}
+
+          \column{.375\textwidth} \small Colaboramos con miembros del
+          grupo SPI\&FM (UCA) en generar propiedades de ciertos puntos
+          de una composición WS-BPEL a partir de trazas de ejecución,
+          mediante la herramienta
+          \href{http://neptuno.uca.es/~takuan}{\herramienta{Takuan}}.
+
+          \column{.6\textwidth}
+          \begin{center}
+            \scriptsize \def\svgwidth{\textwidth}
+            \input{testcase-improvement-cycle-color.pdf_tex}
+          \end{center}
+        \end{columns}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-PDF-mode: t
+%%% End:
