@@ -18,13 +18,14 @@
 \usepackage{fancyvrb}
 \usepackage[htt]{hyphenat}
 \usepackage{array}
+\usepackage{marvosym}
 \PrerenderUnicode{áéíóúÁÉÍÓÚçÇ}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.3}
 \input{boxplots.tex}
 
-\title[Pósters científicos]{Elaboración de un buen póster científico}
+\title{Elaboración de un buen póster científico}
 \author{Antonio García Domínguez}
 \date{Cursos de doctorado \\ \small 18 de enero de 2012}
 \institute{Universidad de Cádiz \\\vspace{2em} \includegraphics{cc-by-sa}}
@@ -228,7 +229,7 @@
     \begin{itemize}
     \item El inicio, final y orden en que se avanza por el póster
       \href{http://www.ncsu.edu/project/posters/NewSite/CreatePosterLayout.html}{debería
-        ser evidente}, para no confundir al lector
+        ser evidente}, para no \href{http://www.ijdvl.com/article.asp?issn=0378-6323;year=2010;volume=76;issue=6;spage=718;epage=720;aulast=Kaimal}{confundir} al lector
     \item En las culturas occidentales, lo natural es ir primero de
       arriba hacia abajo y luego de izquierda a derecha
     \item Hay que evitar que un párrafo ocupe todo el ancho del
@@ -298,7 +299,7 @@
     \end{itemize}
   \end{block}
 
-  \begin{block}{Aspectos a tener en cuenta}
+  \begin{block}{Diferencias en percepción de colores entre personas}
     \begin{itemize}
     \item 8\% de los hombres y $0.4$\% de las mujeres tienen
       \href{http://en.wikipedia.org/wiki/Color_blindness\#cite_note-Howard_Hughes_Medical_Institute-28}{algún
@@ -336,9 +337,9 @@
     \begin{itemize}
     \item El título debe ser legible desde 4--6m
     \item El texto debe ser legible desde 2m
+    \item Los títulos y subtítulos deben resaltar sobre el texto normal
     \item En el ordenador, probad a leerlo al 33\% o 25\%
-    \item Imprimidlo a un A4: si el título es ilegible o no se
-      distinguen las letras del texto, es demasiado pequeño
+    \item Imprimidlo a A4: el texto debe ser legible
     \end{itemize}
   \end{block}
 
@@ -354,6 +355,16 @@
 \end{frame}
 
 \begin{frame}{Formatos de imágenes (I)}
+  \begin{center}
+    \includegraphics[width=.9\textwidth,height=.8\textheight,keepaspectratio]{Bitmap_VS_SVG}
+
+    Comparación entre mapas de bits y gráficos vectoriales
+    (\href{http://en.wikipedia.org/wiki/File:Bitmap_VS_SVG.svg}{Wikipedia},
+    <<Bitmap VS SVG>>, CC-BY-SA 2.5)
+  \end{center}
+\end{frame}
+
+\begin{frame}{Formatos de imágenes (II)}
   \framesubtitle{Fotos: JPEG, gráficas: SVG (PNG de alta resolución si no hay más remedio)}
 
   \begin{block}{Mapas de bitmaps: JPEG, PNG, BMP, GIF, PCX...}
@@ -375,17 +386,6 @@
     \item SVG: estándar abierto, textual, leído por muchos nav.\ Web
     \end{itemize}
   \end{block}
-
-\end{frame}
-
-\begin{frame}{Formatos de imágenes (II)}
-  \begin{center}
-    \includegraphics[width=.9\textwidth,height=.8\textheight,keepaspectratio]{Bitmap_VS_SVG}
-
-    Comparación entre mapas de bits y gráficos vectoriales
-    (\href{http://en.wikipedia.org/wiki/File:Bitmap_VS_SVG.svg}{Wikipedia},
-    <<Bitmap VS SVG>>, CC-BY-SA 2.5)
-  \end{center}
 \end{frame}
 
 \begin{frame}{Gráficas utilizadas: mediciones puntuales}
@@ -393,7 +393,7 @@
   \begin{itemize}
   \item Pensad bien en el tipo de medición a representar
   \item Etiquetad ejes e indicad unidades
-  \item Evitad efectos 3D y otras cosas que no añaden información
+  \item Evitad efectos 3D, sombras y cosas que no añaden información
   \end{itemize}
 
   \vfill
@@ -462,21 +462,148 @@
       \end{tikzpicture} \\
       Medias (distribución normal) & Medianas (otra distribución)
     \end{tabular}
+
+    \vfill
+
+    Si usáis barras de error como en la izquierda, no olvidéis
+    \href{http://betterposters.blogspot.com/2012/01/error-bars.html}{indicar}
+    qué tipo de <<error>> es: ¿mínimo y máximo? ¿Desviación típica?
+    ¿Intervalo de confianza?
   \end{center}
+
 \end{frame}
 
+\begin{frame}{Códigos QR}
 
+  \begin{block}{Utilidad}
+    \begin{itemize}
+    \item Pueden imprimirse de forma normal
+    \item Pueden contener una tarjeta de visita o un enlace a una web
+    \item Los lectores con \emph{smartphones} puede que tengan
+      curiosidad
+    \item Hay generadores de códigos QR
+      \href{http://zxing.appspot.com/generator/}{gratuitos}
+    \end{itemize}
+  \end{block}
 
-\begin{frame}{Software a emplear}
-  % PowerPoint/OpenOffice Impress
+  \begin{center}
+    \includegraphics[height=.4\textheight]{qr_code}
 
-  % OpenOffice Draw/Krita/Inkscape/OmniGraffle/Adobe Illustrator
+    ¿A dónde va este código QR?
+  \end{center}
 
-  % Scribus/Quark xPress/Adobe InDesign
+\end{frame}
 
-  % LaTeX
+\subsection[Software]{Software utilizable}
 
-  % PosterGenius
+\begin{frame}{De elaboración de presentaciones}
+
+  \begin{block}{Ejemplos}
+    \begin{itemize}
+    \item LibreOffice Impress (libre)
+    \item Microsoft PowerPoint, Keynote (privativos)
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Ventajas}
+    \begin{itemize}
+    \item Fáciles de usar y conocidos
+    \item Normalmente ya tenemos uno instalado
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Desventajas}
+    \begin{itemize}
+    \item Dan menos facilidades a la hora de colocar elementos
+    \item Tienen menos opciones para el formato
+    \item Los resultados pueden variar mucho entre ordenadores
+    \item Normalmente es mejor usar otro tipo de software
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{De dibujo}
+
+  \begin{block}{Ejemplos}
+    \begin{itemize}
+    \item Inkscape, Krita o LibreOffice Draw (libres)
+    \item OmniGraffle (privativo) o Adobe Illustrator (privativo)
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Ventajas}
+    \begin{itemize}
+    \item Relativamente fáciles de usar
+    \item Más funcionalidad que los de elaboración de presentaciones:
+      alineación de elementos, formas personalizadas, máscaras,
+      conexión de elementos de diagramas, texto sobre rutas, etc.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Desventajas}
+    \begin{itemize}
+    \item Aún nos obligan a colocarlo y distribuirlo todo a mano
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}{De maquetación}
+
+  \begin{block}{Ejemplos}
+    \begin{itemize}
+    \item Scribus (libre)
+    \item Microsoft Publisher (básico, privativo)
+    \item Adobe InDesign/FrameMaker (privativo)
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Ventajas}
+    \begin{itemize}
+    \item Mayor funcionalidad y nivel de control
+    \item Permiten controlar el flujo del texto y su división en
+      columnas y otros elementos, el espaciado, etc.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Desventajas}
+    \begin{itemize}
+    \item Curva elevada de aprendizaje
+    \item Alto coste de las soluciones propietarias
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Otras soluciones}
+
+  \begin{block}{PosterGenius: fácil, pero restrictivo}
+    \begin{itemize}
+    \item Codifica una serie de prácticas comunes y plantillas
+      prefabricadas para pósters
+    \item Por ejemplo, obliga a seguir un esquema en columnas y no
+      permite usar gráficos vectoriales
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{\LaTeX, por supuesto \Smiley}
+    \begin{itemize}
+    \item Curva de aprendizaje pronunciada, pero merece la pena
+    \item Se puede incrustar código \LaTeX{} en otras herramientas
+      (p. ej. \href{http://blogs.ethz.ch/kowalski/2011/10/05/inkscape-and-latex/}{Inkscape}
+      o
+      \href{http://www.mostlymaths.net/2010/11/mathematics-poster-dropbox-scribus-and.html}{Scribus})
+      para fórmulas y texto de alta calidad
+    \item Se puede usar de forma
+      \href{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=poster}{independiente}
+      para hacer pósters mediante
+      \href{http://nxg.me.uk/docs/posters/}{a0poster}, \href{http://www.brian-amberg.de/uni/poster/}{baposter} o
+      \href{http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php}{beamerposter},
+      por ejemplo
+    \end{itemize}
+  \end{block}
+  
 \end{frame}
 
 \subsection{Impresión y montaje}
@@ -488,7 +615,7 @@
     \begin{center}
       \includegraphics[width=\textwidth,height=.7\textheight,keepaspectratio]{A_size_illustration2_with_letter_and_legal}
 
-      Tamaños ISO 216 A (en.wikipedia.org, <<ISO 216>>)
+      Tamaños ISO 216 A (\href{http://en.wikipedia.org/wiki/File:A_size_illustration2.svg}{Wikipedia}, <<ISO 216>>, CC-BY-SA 3.0)
     \end{center}
 
     \column{.5\textwidth}
@@ -523,7 +650,7 @@
   \begin{block}{Lona o vinilo: algo más cara, pero mucho más resistente}
     \begin{itemize}
     \item Es mucho más resistente y flexible, y no excesivamente cara
-    \item Cuidado con pósters con gráficos vectoriales: las líneas
+    \item Cuidado con pósters con dibujos lineales: las líneas
       tienden a correrse si no se seca bien en la imprenta
     \end{itemize}
   \end{block}
@@ -548,25 +675,65 @@
     enganchará a un armazón, por lo que necesitaréis un cartel de lona
     o vinilo con los
     \href{http://www.printcolorweb.com/spa/item/index.html?msgOrigen=9\&msgValor=58\&CODART=lona}{ojales
-      apropiados}
+      apropiados}.
   \end{block}
 
 \end{frame}
 
 \section{Defensa}
 
-\begin{frame}{¿Qué hacer y no hacer el día de la sesión?}
-  % aseo, aspecto físico, ropa, lenguaje corporal
+\begin{frame}{Recomendaciones para el día de la sesión (I)}
 
-  % forma de hablar - y cantidad de tiempo que se habla
+  \begin{block}{Cuidar el aspecto físico y lenguaje corporal}
+    \begin{itemize}
+    \item Evidentemente, hay que venir descansado, limpio y arreglado
+    \item Ir en chaqueta o no depende de la cultura de vuestra
+      especialidad: en informática basta con ir bien vestido
+    \item Curiosidad: si la ropa está conjuntada con el póster,
+      \href{http://www.cmaj.ca/content/169/12/1291.full}{mejor}
+    \item El lenguaje corporal es importante: cruzar los brazos o
+      meter las manos en los bolsillos crea una barrera invisible
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Colocarse y atraer al público}
+    \begin{itemize}
+    \item Si no hay sitios designados para cada póster, buscar el más
+      cercano al café o por el que pase todo el mundo
+    \item No es mala idea atraer al público con detalles sencillos, si
+      los tenemos: bolígrafos, CD, alguna muestra relacionada con el
+      tema de investigación
+    \end{itemize}
+  \end{block}
+
 \end{frame}
 
-\begin{frame}{Materiales de apoyo}
-  % tarjetas de visita
+\begin{frame}{Recomendaciones para el día de la sesión (II)}
 
-  % folletos (dípticos, trípticos)
+  \begin{block}{Atender a los visitantes}
+    \begin{itemize}
+    \item Si sólo están interesados en leer, dejarles tranquilos
+    \item Si preguntan, \structure{nunca} leer el póster en voz alta:
+      \begin{enumerate}
+      \item Resumir en una frase lo que se ha hecho
+      \item Ir describiendo más en detalle señalando figuras
+      \item Responder a preguntas sobre la marcha
+      \item Si viene alguien más, que espere
+      \end{enumerate}
+    \item Vigilad el lenguaje corporal de la otra persona
+    \end{itemize}
+  \end{block}
 
-  % muestras relacionadas con la investigación
+  \begin{block}{Obtener contactos}
+    \begin{itemize}
+    \item Es buena idea traer tarjetas de visita, folletos o copias
+      impresas en A4 de vuestro póster/artículo, si podéis
+    \item Si os deja la organización, otra opción es poner una cajita
+      al lado del póster y que los interesados cojan una tarjeta o
+      folleto
+    \end{itemize}
+  \end{block}
+
 \end{frame}
 
 \section[Ejemplos]{Ejemplos de pósters}
@@ -574,7 +741,18 @@
 
 \begin{frame}{Ejemplos}
   \begin{center}
-    \Large Veamos algunos ejemplos.
+
+    \vspace{\stretch{3}}
+
+    {\Large Veamos algunos ejemplos.}
+
+    \vspace{\stretch{3}}
+
+    {\large \url{http://www.flickr.com/groups/postersessions/}}
+
+    \vspace{\stretch{1}}
+
+    {\large \url{http://f1000.com/posters}}
   \end{center}
 \end{frame}
 
@@ -585,6 +763,10 @@
 
   \begin{thebibliography}{10}
     \beamertemplatearticlebibitems
+    \bibitem{x} Zen Faulkes.
+      \newblock Blog <<Better Posters>>.
+      \newblock {\small\url{http://betterposters.blogspot.com}}
+
     \bibitem{y} Purrington, C.B.
       \newblock Designing conference posters.
       \newblock {\small\url{http://colinpurrington.com/tips/academic/posterdesign}}
@@ -592,14 +774,6 @@
     \bibitem{x} Colorado State University.
       \newblock Writing Guide: Poster Sessions.
       \newblock {\small\url{http://writing.colostate.edu/guides/speaking/poster/}}
-
-    \bibitem{z} Flickr.com.
-      \newblock Grupo <<Poster sessions>>.
-      \newblock {\small\url{http://www.flickr.com/groups/postersessions/}}
-
-    \bibitem{w} Faculty of 1000.
-      \newblock F1000Posters Open Access archive.
-      \newblock {\small\url{http://f1000.com/posters}}
   \end{thebibliography}
 \end{frame}
 
