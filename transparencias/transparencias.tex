@@ -1,7 +1,7 @@
 \documentclass[xcolor=svgnames,compress]{beamer}
 
 % see http://tex.stackexchange.com/questions/13423/how-to-color-href-links-in-beamer
-\hypersetup{colorlinks,linkcolor=,urlcolor=alert}
+\hypersetup{colorlinks,linkcolor=,urlcolor=DarkGreen}
 
 \mode<presentation>
 {
@@ -17,8 +17,12 @@
 \usepackage{tikz}
 \usepackage{fancyvrb}
 \usepackage[htt]{hyphenat}
-
+\usepackage{array}
 \PrerenderUnicode{áéíóúÁÉÍÓÚçÇ}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\input{boxplots.tex}
 
 \title[Pósters científicos]{Elaboración de un buen póster científico}
 \author{Antonio García Domínguez}
@@ -123,8 +127,9 @@
       pósters, dejándolo para las últimas horas del día y/o los
       \emph{coffee break}
     \item Otros eventos no motivan a los autores/asistentes a ir a las
-      sesiones, y hay pósters sin nadie que los defienda o nadie que
-      los discuta
+      sesiones, y hay pósters
+      \href{http://www.flickr.com/photos/jepoirrier/488699487/}{sin
+        nadie} que los defienda o nadie que los discuta
     \end{itemize}
   \end{block}
 
@@ -186,11 +191,28 @@
 
 \begin{frame}{¿Cómo se evita abrumar a la audiencia?}
 
-  \begin{block}{Un póster no es un artículo}
+  \begin{block}{Un póster es una versión muy concentrada}
     \begin{itemize}
-    \item Un póster debe estimular la curiosidad del asistente
-    \item Hacer un póster no consiste en \href{imprimir el
-        artículo}{http://www.flickr.com/photos/somayalangley/2565759527/}
+    \item Un póster debe estimular la curiosidad del asistente: usando
+      menos texto y más gráficos
+    \item Hay que usar expresiones sencillas siempre que sea posible,
+      sin perder rigor científico ni cohesión
+    \item Hacer un póster no es
+      \href{http://www.flickr.com/photos/somayalangley/2565759527/}{imprimir
+        el artículo} ni
+      \href{http://www.flickr.com/photos/bassoonman_kap/5633474323/in/pool-688685@N24/}{resumirlo}
+    \item Habrá que
+      \href{http://www.flickr.com/search/?w=97127962@N00\&q=poster}{reducirlo}
+      a lo \href{http://www.flickr.com/photos/materials-stuff/6193567858/in/pool-368476@N21/}{esencial} que queramos transmitir
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Estrategias para plantearse una estructura}
+    \begin{itemize}
+    \item Algunos prefieren elaborar un borrador de artículo para ir
+      organizando las ideas antes de ponerlas en un póster
+    \item Otros (como yo) prefieren hacer un boceto a lápiz
+      distribuyendo el espacio e indicando dónde va cada idea
     \end{itemize}
   \end{block}
 
@@ -200,24 +222,261 @@
 
 \subsection{Diseño visual}
 
-\begin{frame}{Distribución de los elementos}
+\begin{frame}{Distribución de los elementos (I)}
+
+  \begin{block}{Orden de lectura}
+    \begin{itemize}
+    \item El inicio, final y orden en que se avanza por el póster
+      \href{http://www.ncsu.edu/project/posters/NewSite/CreatePosterLayout.html}{debería
+        ser evidente}, para no confundir al lector
+    \item En las culturas occidentales, lo natural es ir primero de
+      arriba hacia abajo y luego de izquierda a derecha
+    \item Hay que evitar que un párrafo ocupe todo el ancho del
+      póster: es difícil seguirlo con la mirada así
+    \item Esto sugiere usar filas y columnas, divididas si es
+      necesario
+    \end{itemize}
+  \end{block}
+
+  \begin{center}
+    \begin{tabular}{*{2}{>{\centering\arraybackslash}p{.3\textwidth}}}
+      \begin{tikzpicture}[
+        elem/.style={draw,minimum width=.2\textwidth,minimum height=1.5em},
+        node distance=1.75em,
+        ]
+        \node[elem] (a) {};
+        \node[elem,below of=a] (b) {};
+        \node[elem,below of=b] (c) {};
+      \end{tikzpicture} &
+      \begin{tikzpicture}[
+        elem/.style={draw,minimum width=1.5em,minimum height=.1775\textwidth},
+        node distance=1.75em,
+        ]
+        \node[elem] (a) {};
+        \node[elem,right of=a] (b) {};
+        \node[elem,right of=b] (c) {};
+      \end{tikzpicture} \\
+      En filas & En columnas \\
+    \end{tabular}
+  \end{center}
 
 \end{frame}
 
-\begin{frame}{Esquemas de colores}
+\begin{frame}{Distribucion de los elementos (II)}
+
+  \begin{block}{Equilibrio}
+    \begin{itemize}
+    \item Una figura o una tabla <<pesan>> más que el texto normal
+    \item El espacio en blanco también cuenta en el equilibrio
+    \item Un póster equilibrado es agradable y reparte mejor la
+      atención
+    \item Posibles ejes de simetría: vertical, horizontal o diagonal
+    \end{itemize}
+  \end{block}
+
+  \begin{center}
+    \begin{tabular}{*{3}{c}}
+      \fbox{\includegraphics[width=.25\textwidth]{simetria-ninguna}}
+      & \fbox{\includegraphics[width=.25\textwidth]{simetria-vertical}}
+      & \fbox{\includegraphics[width=.25\textwidth]{simetria-ambos}} \\[1ex]
+      Sin simetría & Horizontal & Horizontal y vertical
+    \end{tabular}
+  \end{center}
 
 \end{frame}
 
-\begin{frame}{Fuentes y formatos de imágenes}
+\begin{frame}{Esquemas de colores (I)}
+
+  \begin{block}{¿Cómo los elijo?}
+    \begin{itemize}
+    \item Para mayor legibilidad, hay que maximizar el contraste: lo
+      ideal es usar letra oscura sobre fondo claro
+    \item Tienen que ser colores <<compatibles>>: no conviene mezclar
+      colores calientes con fríos, excepto para resaltar algo
+    \item \url{http://colorschemedesigner.com} $\rightarrow$
+      <<complement>> y color principal azul: ¿qué os sale?
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Aspectos a tener en cuenta}
+    \begin{itemize}
+    \item 8\% de los hombres y $0.4$\% de las mujeres tienen
+      \href{http://en.wikipedia.org/wiki/Color_blindness\#cite_note-Howard_Hughes_Medical_Institute-28}{algún
+        problema} distinguiendo colores
+    \item Wikipedia tiene
+      \href{http://en.wikipedia.org/wiki/Category:Articles_with_images_not_understandable_by_color_blind_users\#Tips_for_editors}{indicaciones},
+      y hay simuladores de pantalla completa como
+      \href{http://colororacle.org/}{ColorOracle}
+    \end{itemize}
+  \end{block}
 
 \end{frame}
 
-\begin{frame}{Gráficas utilizadas}
+\begin{frame}{Esquemas de colores (II)}
+
+  \begin{block}{Importancia del medio}
+    \begin{itemize}
+    \item Cada pantalla, monitor, impresora o cañón representa los
+      colores de forma distinta
+    \item Además, el espacio de colores en monitores (RGB) es distinto
+      al de las impresoras (CMYK, PMS)
+    \item Los diseñadores gráficos profesionales calibran su monitor
+      contra un perfil de color apropiado y elaboran materiales sobre
+      CMYK o PMS, pero puede ser complejo y caro
+    \item Una aproximación razonable es imprimir un borrador antes de
+      mandarlo a la imprenta, para ver si los colores salen bien
+    \end{itemize}
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}{Fuentes}
+
+  \begin{block}{Tamaños de letra}
+    \begin{itemize}
+    \item El título debe ser legible desde 4--6m
+    \item El texto debe ser legible desde 2m
+    \item En el ordenador, probad a leerlo al 33\% o 25\%
+    \item Imprimidlo a un A4: si el título es ilegible o no se
+      distinguen las letras del texto, es demasiado pequeño
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Tipos de letra}
+    \begin{itemize}
+    \item Hay dos familias fundamentales: sans (texto en pantalla) y
+      \textrm{serif} (texto en impresión)
+    \item Además, hay variantes proporcionales (texto normal) y
+      \texttt{monoespaciadas} (código o salida de un programa)
+    \end{itemize}
+  \end{block}
 
 \end{frame}
+
+\begin{frame}{Formatos de imágenes (I)}
+  \framesubtitle{Fotos: JPEG, gráficas: SVG (PNG de alta resolución si no hay más remedio)}
+
+  \begin{block}{Mapas de bitmaps: JPEG, PNG, BMP, GIF, PCX...}
+    \begin{itemize}
+    \item Imagen = matriz de \emph{pixels}
+    \item Se <<pixelan>> al ampliarlas: es mejor trabajar con imágenes
+      grandes y luego reducirlas sobre la marcha
+    \item JPEG: formato <<con pérdidas>>, para fotografías
+    \item PNG: formato <<sin pérdidas>>, para gráficas y dibujos
+      lineales
+    \item Al escanear, hay que usar 150ppp como mínimo
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Vectoriales: SVG, AI, EPS...}
+    \begin{itemize}
+    \item Imagen = secuencia de instrucciones de dibujado
+    \item Pueden escalarse libremente sin problemas
+    \item SVG: estándar abierto, textual, leído por muchos nav.\ Web
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Formatos de imágenes (II)}
+  \begin{center}
+    \includegraphics[width=.9\textwidth,height=.8\textheight,keepaspectratio]{Bitmap_VS_SVG}
+
+    Comparación entre mapas de bits y gráficos vectoriales
+    (\href{http://en.wikipedia.org/wiki/File:Bitmap_VS_SVG.svg}{Wikipedia},
+    <<Bitmap VS SVG>>, CC-BY-SA 2.5)
+  \end{center}
+\end{frame}
+
+\begin{frame}{Gráficas utilizadas: mediciones puntuales}
+
+  \begin{itemize}
+  \item Pensad bien en el tipo de medición a representar
+  \item Etiquetad ejes e indicad unidades
+  \item Evitad efectos 3D y otras cosas que no añaden información
+  \end{itemize}
+
+  \vfill
+
+  \begin{center}
+    \begin{tabular}{*{2}{>{\centering\arraybackslash}p{.45\textwidth}}}
+      \begin{tikzpicture}
+        \begin{axis}[width=.4\textwidth, enlarge x limits=true, xlabel=$x$, ylabel={$f(x)$ (unidad)}]
+          \addplot+ coordinates {(0,1) (1,2) (2,3) (4,8) (5,10) (6,20) (7,30) (8,40)};
+        \end{axis}
+      \end{tikzpicture}
+      &
+      \begin{tikzpicture}
+        \begin{axis}[width=.4\textwidth, symbolic x coords={A,B,C}, enlarge x limits=true, xlabel=Categorías, ylabel=Resultados (unidad)]
+          \addplot[fill=blue,ybar] coordinates {(A,1) (B,2) (C,3)};
+        \end{axis}
+      \end{tikzpicture} \\
+      Variable dependiente continua o discreta con muchos valores &
+      Variable discreta o categórica
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Gráficas utilizadas: medias y medianas}
+  \begin{center}
+    \begin{tabular}{*{2}{>{\centering\arraybackslash}p{.45\textwidth}}}
+      \begin{tikzpicture}
+        \begin{axis}[
+          width=.4\textwidth,
+          symbolic x coords={A,B,C},
+          only marks,
+          enlarge x limits=true,
+          xlabel=Categorías,
+          ylabel=Medias y límites (unidad)
+          ]
+          \addplot+[draw=black, fill=white, error bars/.cd, y dir=plus, y explicit]
+            coordinates {
+              (A, 1) +- (0, 0.5)
+              (B, 2) +- (0, 0.7)
+              (C, 0.7) +- (0, 1.2)
+            }; 
+          \addplot[draw=black, fill=white, error bars/.cd, y dir=minus, y explicit]
+            coordinates {
+              (A, 1) +- (0, 0.8)
+              (B, 2) +- (0, 1)
+              (C, 0.7) +- (0, 0.6)
+            };
+        \end{axis}
+      \end{tikzpicture}
+      &
+      \begin{tikzpicture}
+        \begin{axis} [
+          width=.4\textwidth,
+          xtick=data,
+          symbolic x coords={A, B, C},
+          enlarge x limits={0.2},
+          xlabel=Categorías,
+          ylabel=Resultados (unidad)
+          ]
+          \addplot [box plot median] table {testdata.dat};
+          \addplot [box plot box] table {testdata.dat};
+          \addplot [box plot top whisker] table {testdata.dat};
+          \addplot [box plot bottom whisker] table {testdata.dat};
+        \end{axis}
+      \end{tikzpicture} \\
+      Medias (distribución normal) & Medianas (otra distribución)
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+
 
 \begin{frame}{Software a emplear}
+  % PowerPoint/OpenOffice Impress
 
+  % OpenOffice Draw/Krita/Inkscape/OmniGraffle/Adobe Illustrator
+
+  % Scribus/Quark xPress/Adobe InDesign
+
+  % LaTeX
+
+  % PosterGenius
 \end{frame}
 
 \subsection{Impresión y montaje}
@@ -238,6 +497,8 @@
       de alto y 4 A4 de ancho
     \item En eventos fuera de Europa, puede que se usen medidas
       imperiales, como 2 $\times$ 4 pies, por ejemplo
+    \item Los formatos en retrato sugieren usar disposiciones en
+      filas, y en apaisado es mejor ir en columnas
     \end{itemize}
   \end{columns}
 \end{frame}
@@ -308,15 +569,13 @@
   % muestras relacionadas con la investigación
 \end{frame}
 
-\section[Ejemplos]{Ejemplos de pósters buenos... y no tanto}
+\section[Ejemplos]{Ejemplos de pósters}
 \label{sec:posters}
 
-\begin{frame}{Pósters malos}
-
-\end{frame}
-
-\begin{frame}{Pósters buenos}
-
+\begin{frame}{Ejemplos}
+  \begin{center}
+    \Large Veamos algunos ejemplos.
+  \end{center}
 \end{frame}
 
 \appendix
@@ -346,12 +605,19 @@
 
 \begin{frame}{Fin de la presentación}
   \begin{center}
-    {\Huge ¡Gracias por su atención!}
 
-    \vspace{3em}
+    \vspace{\stretch{3}}
+
+    {\Huge ¡Gracias!}
+
+    \vspace{\stretch{3}}
 
     {\Large
-      \href{mailto:antonio.garciadominguez@uca.es}{antonio.garciadominguez@uca.es}}
+      \href{mailto:antonio.garciadominguez@uca.es}{antonio.garciadominguez@uca.es}
+
+      \vspace{\stretch{1}}
+
+      Twitter: \href{http://twitter.com/antoniogado}{@antoniogado}}
   \end{center}
 \end{frame}
 

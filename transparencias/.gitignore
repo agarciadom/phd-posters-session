@@ -8,5 +8,5 @@
 *synctex*
 auto
 *latexmk*
-cc-by-sa.pdf
-A*.pdf
+*.pdf
+!transparencias.pdf

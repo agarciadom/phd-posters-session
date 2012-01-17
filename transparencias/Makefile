@@ -1,6 +1,6 @@
 PDF=transparencias.pdf
 LATEXMK_FLAGS=-r latexmkrc.pl -pdf
-FIGURES=cc-by-sa.pdf A_size_illustration2_with_letter_and_legal.pdf
+FIGURES=cc-by-sa.pdf A_size_illustration2_with_letter_and_legal.pdf simetria-ambos.pdf simetria-ninguna.pdf simetria-vertical.pdf Bitmap_VS_SVG.pdf
 .PHONY: all install preview clean
 
 $(PDF): $(FIGURES)
